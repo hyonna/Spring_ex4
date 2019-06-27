@@ -17,9 +17,10 @@ public class NoticeDAO implements BoardDAO{
 	@Inject
 	private NoticeDTO noticeDTO;
 	
-	public NoticeDAO(DBConnector dbConnector) {
+	public NoticeDAO(DBConnector dbConnector, NoticeDTO noticeDTO) {
 		
 		this.dbConnector = dbConnector;
+		this.noticeDTO = noticeDTO;
 	}
 
 	@Override
@@ -30,8 +31,6 @@ public class NoticeDAO implements BoardDAO{
 		String sql = "insert into notice values(notice_seq.nextval, ?, ?, null, sysdate, 0)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
-		
-		noticeDTO = new NoticeDTO();
 		
 		st.setString(1, noticeDTO.getTitle());
 		st.setString(2, noticeDTO.getWriter());
