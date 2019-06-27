@@ -37,6 +37,9 @@ public class NoticeDAO implements BoardDAO{
 		
 		int result = st.executeUpdate();
 		
+		st.close();
+		con.close();
+		
 		return result;
 		
 		

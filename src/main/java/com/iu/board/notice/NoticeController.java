@@ -18,7 +18,6 @@ public class NoticeController {
 		
 		try {
 			System.out.println(noticeService.setData(noticeDTO));
-			System.out.println(noticeDTO.getTitle());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

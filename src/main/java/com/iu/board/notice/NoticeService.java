@@ -10,6 +10,7 @@ public class NoticeService implements BoardService{
 	@Inject
 	private NoticeDAO noticeDAO;
 	
+	
 	public NoticeService(NoticeDAO noticeDAO) {
 
 		this.noticeDAO = noticeDAO;
@@ -19,6 +20,8 @@ public class NoticeService implements BoardService{
 	public int setData(BoardDTO boardDTO) throws Exception {
 		
 		System.out.println("Notice Service");
+		
+		
 		int result = noticeDAO.setdata(boardDTO);
 		
 		return result;
