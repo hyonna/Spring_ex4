@@ -18,13 +18,9 @@ public class NoticeService implements BoardService{
 
 	@Override
 	public int setData(BoardDTO boardDTO) throws Exception {
+		System.out.println("notice Service");
+		return noticeDAO.setdata(boardDTO);
 		
-		System.out.println("Notice Service");
-		
-		
-		int result = noticeDAO.setdata(boardDTO);
-		
-		return result;
 	}
 	
 	

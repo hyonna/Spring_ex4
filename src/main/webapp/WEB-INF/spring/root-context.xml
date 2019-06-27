@@ -5,20 +5,14 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
+	<bean class="com.iu.board.notice.NoticeDAO" id="noticeDAO">
+		<constructor-arg name="dbConnector" ref="DBConnector" />
+	</bean>
+	
 	<bean class="com.iu.board.notice.NoticeService" id="noticeService">
 		<constructor-arg name="noticeDAO" ref="noticeDAO" />
 	</bean>
 	
-	<bean class="com.iu.board.notice.NoticeDAO" id="noticeDAO">
-		<constructor-arg name="dbConnector" ref="DBConnector" />
-		<constructor-arg name="noticeDTO" ref="noticeDTO" />
-	</bean>
-	
-	<bean class="com.iu.board.notice.NoticeDTO" id="noticeDTO">
-		<property name="title" value="title"/>
-		<property name="writer" value="writer"/>
-		<property name="contents" value="null"/>
-	</bean>
 	
 	<bean class="com.iu.util.DBConnector" id="DBConnector">
 		<property name="user" value="spring" />

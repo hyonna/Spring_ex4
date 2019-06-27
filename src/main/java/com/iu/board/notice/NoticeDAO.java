@@ -14,36 +14,28 @@ public class NoticeDAO implements BoardDAO{
 	@Inject
 	private DBConnector dbConnector;
 	
-	@Inject
-	private NoticeDTO noticeDTO;
 	
-	public NoticeDAO(DBConnector dbConnector, NoticeDTO noticeDTO) {
+	public NoticeDAO(DBConnector dbConnector) {
 		
 		this.dbConnector = dbConnector;
-		this.noticeDTO = noticeDTO;
 	}
+
 
 	@Override
 	public int setdata(BoardDTO boardDTO) throws Exception {
 		
+		System.out.println("notice DAO");
 		Connection con = dbConnector.getConnect();
-		
-		String sql = "insert into notice values(notice_seq.nextval, ?, ?, null, sysdate, 0)";
-		
+		String sql ="insert into notice values(notice_seq.nextval, ?,?,null,sysdate,0)";
 		PreparedStatement st = con.prepareStatement(sql);
-		
-		st.setString(1, noticeDTO.getTitle());
-		st.setString(2, noticeDTO.getWriter());
-		
+		st.setString(1, boardDTO.getTitle());
+		st.setString(2, boardDTO.getWriter());
 		int result = st.executeUpdate();
-		
 		st.close();
 		con.close();
-		
 		return result;
-		
-		
 	}
+
 	
 	
 
